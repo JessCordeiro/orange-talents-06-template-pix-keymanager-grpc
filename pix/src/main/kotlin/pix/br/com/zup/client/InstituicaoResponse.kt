@@ -1,6 +1,6 @@
 package pix.br.com.zup.client
 
-class InstituicaoResponse (
+data class InstituicaoResponse (
     val nome: String,
     val ispb: String
         )

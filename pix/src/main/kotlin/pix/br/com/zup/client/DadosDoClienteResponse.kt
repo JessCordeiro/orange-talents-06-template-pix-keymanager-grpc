@@ -1,6 +1,6 @@
 package pix.br.com.zup.client
 
-class DadosDoClienteResponse(
+data class DadosDoClienteResponse(
 
     val nome: String,
     val cpf: String,

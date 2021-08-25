@@ -6,11 +6,12 @@ import pix.br.com.zup.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class RegistraChaveEndpoint(@Inject private val service: NovaChavePixService)
     : RegistrarChaveGrpc.RegistrarChaveImplBase()
     {
-         fun registra (
+      override  fun registra (
             request: CadastraChaveRequest,
             responseObserver: StreamObserver<CadastraChaveResponse>
         ){

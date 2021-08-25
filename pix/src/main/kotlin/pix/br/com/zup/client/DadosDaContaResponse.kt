@@ -2,7 +2,7 @@ package pix.br.com.zup.client
 
 import pix.br.com.zup.cadastra.Conta
 
-class DadosDaContaResponse(
+data class DadosDaContaResponse(
     val tipo: String,
     val instituicao: InstituicaoResponse,
     val agencia: String,
