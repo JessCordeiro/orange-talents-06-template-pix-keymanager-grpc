@@ -27,7 +27,7 @@ class NovaChavePixService(@Inject val repository:ChavePixRepository,
         if (repository.existsByChave(novaChave.chave!!))
             throw ChavePixExistenteException(s = "Chave já existe no sistema")
 
-        val dadosItauResponse = itauClient.buscarTipoDeConta(novaChave.clienteId!!, novaChave.tipoDeConta!!)
+        val dadosItauResponse = itauClient.buscarTipoDeConta(novaChave.clienteId!!, novaChave.tipoDeConta!!.name)
 
         val conta = dadosItauResponse.body()?.toConta() ?:let{
             throw IllegalStateException("Cliente não encontrado")

@@ -5,13 +5,13 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.annotation.QueryValue
 import io.micronaut.http.client.annotation.Client
-import pix.br.com.zup.TipoDeConta
 
 
-@Client(value = "\${http://localhost:9091}")
+
+@Client(value = "\${itau.contas.url}")
 interface ItauClient {
-    @Get(value="/api/v1/clientes/{clienteId}/contas{?tipo}")
-    fun buscarTipoDeConta(@PathVariable clientId: String, @QueryValue tipoDeConta: TipoDeConta)
+    @Get(value = "/api/v1/clientes/{clienteId}/contas{?tipo}")
+    fun buscarTipoDeConta(@PathVariable clienteId: String, @QueryValue tipo: String)
     : HttpResponse<DadosDaContaResponse>
 
 
