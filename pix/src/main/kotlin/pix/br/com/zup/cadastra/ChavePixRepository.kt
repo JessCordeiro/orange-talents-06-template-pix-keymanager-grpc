@@ -7,7 +7,7 @@ import java.util.*
 @Repository
 interface ChavePixRepository:JpaRepository<ChavePix, UUID> {
 
-    override fun existsById(clienteId: UUID): Boolean
+    fun existsByChave(valorChave: String?): Boolean
 
 
 }

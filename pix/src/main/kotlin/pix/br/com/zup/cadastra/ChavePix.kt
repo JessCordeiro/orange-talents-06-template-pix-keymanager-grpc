@@ -33,3 +33,14 @@ class ChavePix (
     @GeneratedValue
     val id: UUID? = null
 }
+
+enum class TipoConta(val itau: String) {
+    CONTA_CORRENTE("CONTA_CORRENTE"),
+    CONTA_POUPANCA("CONTA_POUPANCA")
+}
+enum class TipoChave(val request: TipoChave){
+    CPF(TipoChave.CPF),
+    CELULAR(TipoChave.CELULAR),
+    EMAIL(TipoChave.EMAIL),
+    ALEATORIA(TipoChave.ALEATORIA);
+}
