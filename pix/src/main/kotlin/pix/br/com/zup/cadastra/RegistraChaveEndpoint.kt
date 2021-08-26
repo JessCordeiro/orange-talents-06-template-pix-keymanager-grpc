@@ -1,6 +1,7 @@
 package pix.br.com.zup.cadastra
 
-import io.grpc.stub.ClientResponseObserver
+
+
 import io.grpc.stub.StreamObserver
 import pix.br.com.zup.*
 import javax.inject.Inject
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 class RegistraChaveEndpoint(@Inject private val service: NovaChavePixService)
     : RegistrarChaveGrpc.RegistrarChaveImplBase()
     {
-      override  fun registra (
+       fun registra (
             request: CadastraChaveRequest,
             responseObserver: StreamObserver<CadastraChaveResponse>
         ){

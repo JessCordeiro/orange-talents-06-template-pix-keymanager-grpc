@@ -33,7 +33,7 @@ class NovaChavePixService(@Inject val repository:ChavePixRepository,
             throw IllegalStateException("Cliente não encontrado")
         }
 
-        val chave = novaChave.toModel(conta)
+        val chave = novaChave.toConta(conta)
 
         repository.save(chave)
         return chave

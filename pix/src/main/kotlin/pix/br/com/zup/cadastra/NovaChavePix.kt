@@ -22,11 +22,9 @@ data class NovaChavePix (
     val tipoDeConta: TipoDeConta?
 
     ){
-    @Id
-    @GeneratedValue
-    val id: UUID? = null
 
-    fun toModel(conta:Conta): ChavePix{
+
+    fun toConta(conta:Conta): ChavePix{
         return ChavePix(
             clienteId = UUID.fromString(this.clienteId),
             tipo = TipoDeChave.valueOf(this.tipo!!.name),

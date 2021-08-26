@@ -20,12 +20,12 @@ fun CadastraChaveRequest.toModel(): NovaChavePix{
     )
 }
 
-fun NovaChavePix.toModel(conta: Conta): ChavePix {
-
-    return ChavePix(
-        clienteId = UUID.fromString(clienteId),
-        tipo = this.tipo,
-        chave = this.chave,
-        tipoDeConta = this.tipoDeConta,
-    )
-}
+//fun NovaChavePix.toConta(conta: Conta): ChavePix {
+//
+//    return ChavePix(
+//        clienteId = UUID.fromString(clienteId),
+//        tipo = this.tipo,
+//        chave = this.chave,
+//        tipoDeConta = this.tipoDeConta,
+//    )
+//}
