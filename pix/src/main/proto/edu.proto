@@ -12,6 +12,10 @@ service RegistrarChave{
      rpc cadastrar(CadastraChaveRequest) returns (CadastraChaveResponse) {}
 }
 
+   service ExcluiChaveGrpcService{
+  rpc exclui(ExcluiChaveRequest) returns (ExcluiChaveResponse){}
+   }
+
 enum TipoDeChave {
     UNKNOWN_TIPO_CHAVE = 0;
     CPF = 1;
@@ -36,6 +40,16 @@ message CadastraChaveRequest{
 message CadastraChaveResponse{
     string clienteId = 1;
     string pixId = 2;
+}
+
+message ExcluiChaveRequest {
+  string clienteId = 1;
+  string pixId = 2;
+}
+
+message ExcluiChaveResponse {
+  string clienteId = 1;
+  string pixId = 2;
 }
 
 

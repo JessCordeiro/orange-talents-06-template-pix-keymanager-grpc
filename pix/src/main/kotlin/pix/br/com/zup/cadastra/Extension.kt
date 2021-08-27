@@ -3,6 +3,8 @@ package pix.br.com.zup.cadastra
 import pix.br.com.zup.CadastraChaveRequest
 import pix.br.com.zup.TipoDeChave
 import pix.br.com.zup.TipoDeConta
+import pix.br.com.zup.removeChave.ExcluirChaveService
+import pix.br.com.zup.removeChave.ExcluirRequest
 import java.util.*
 
 fun CadastraChaveRequest.toModel(): NovaChavePix{
@@ -29,3 +31,7 @@ fun CadastraChaveRequest.toModel(): NovaChavePix{
 //        tipoDeConta = this.tipoDeConta,
 //    )
 //}
+
+fun ExcluirRequest.toExcluirRequest(): ExcluirRequest{
+    return ExcluirRequest(clientId, pixId)
+}
