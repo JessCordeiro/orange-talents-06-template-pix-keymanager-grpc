@@ -3,7 +3,7 @@ package pix.br.com.zup.cadastra
 import io.micronaut.data.annotation.Embeddable
 
 @Embeddable
-class Conta (
+data class ContaAssociada (
     val instituicao: String,
     val nomeDoTitular: String,
     val cpfDoTitular: String,

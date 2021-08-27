@@ -3,10 +3,8 @@ package pix.br.com.zup.cadastra
 import pix.br.com.zup.TipoDeChave
 import pix.br.com.zup.TipoDeConta
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
+import javax.validation.Valid
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
@@ -25,13 +23,22 @@ class ChavePix (
     val chave: String?,
     @field:NotNull
     @Column(nullable = false)
-    val tipoDeConta: TipoDeConta?
+    val tipoDeConta: TipoDeConta?,
+
+    @field:Valid
+    @Embedded
+    val conta: ContaAssociada
+
 
 ){
 
     @Id
     @GeneratedValue
     val id: UUID? = null
+
+    fun eDoCliente(clienteId: String): Boolean{
+        return UUID.fromString(clienteId) == this.clienteId
+    }
 }
 
 enum class TipoConta(val itau: String) {
@@ -44,3 +51,6 @@ enum class TipoChave(val request: TipoChave){
     EMAIL(TipoChave.EMAIL),
     ALEATORIA(TipoChave.ALEATORIA);
 }
+
+
+

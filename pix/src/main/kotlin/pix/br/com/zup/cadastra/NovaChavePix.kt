@@ -4,8 +4,6 @@ import io.micronaut.core.annotation.Introspected
 import pix.br.com.zup.TipoDeChave
 import pix.br.com.zup.TipoDeConta
 import java.util.*
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
@@ -24,12 +22,13 @@ data class NovaChavePix (
     ){
 
 
-    fun toConta(conta:Conta): ChavePix{
+    fun toConta(conta:ContaAssociada): ChavePix{
         return ChavePix(
             clienteId = UUID.fromString(this.clienteId),
             tipo = TipoDeChave.valueOf(this.tipo!!.name),
-            chave = if(this.tipo == TipoDeChave.ALEATORIA) UUID.randomUUID().toString() else TipoChave.valueOf(this.chave!!).toString(),
+            chave = if(this.tipo == TipoDeChave.ALEATORIA) UUID.randomUUID().toString() else this.chave,
             tipoDeConta = TipoDeConta.valueOf(this.tipoDeConta!!.name),
+            conta = conta
 
 
 

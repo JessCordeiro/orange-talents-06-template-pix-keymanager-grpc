@@ -12,7 +12,9 @@ import javax.inject.Singleton
 class RegistraChaveEndpoint(@Inject private val service: NovaChavePixService)
     : RegistrarChaveGrpc.RegistrarChaveImplBase()
     {
-       fun registra (
+
+
+        override fun cadastrar (
             request: CadastraChaveRequest,
             responseObserver: StreamObserver<CadastraChaveResponse>
         ){

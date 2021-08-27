@@ -1,17 +1,14 @@
 package pix.br.com.zup.cadastra
 
-import com.google.protobuf.Timestamp
 import io.micronaut.validation.Validated
 
 
 import pix.br.com.zup.client.ItauClient
 import pix.br.com.zup.excecao.ChavePixExistenteException
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 import javax.transaction.Transactional
 import javax.validation.Valid
-import pix.br.com.zup.*
 
 @Validated
 @Singleton

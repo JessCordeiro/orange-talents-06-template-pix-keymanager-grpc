@@ -1,6 +1,6 @@
 package pix.br.com.zup.client
 
-import pix.br.com.zup.cadastra.Conta
+import pix.br.com.zup.cadastra.ContaAssociada
 
 data class DadosDaContaResponse(
     val tipo: String,
@@ -10,9 +10,9 @@ data class DadosDaContaResponse(
     val titular: TitularResponse
 ) {
 
-    fun toConta(): Conta {
+    fun toConta(): ContaAssociada {
 
-        return Conta(
+        return ContaAssociada(
             instituicao = this.instituicao.nome,
             nomeDoTitular = this.titular.nome,
             cpfDoTitular = this.titular.cpf,
