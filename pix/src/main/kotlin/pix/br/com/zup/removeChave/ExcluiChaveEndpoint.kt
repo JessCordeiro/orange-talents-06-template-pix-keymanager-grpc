@@ -11,6 +11,7 @@ import pix.br.com.zup.cadastra.toExcluirRequest
 class ExcluiChaveEndpoint (
     @Inject private val service: ExcluirChaveService)
     :ExcluiChaveGrpcServiceGrpc.ExcluiChaveGrpcServiceImplBase(){
+
     override fun exclui(request: ExcluirRequest,
                         responseObserver: StreamObserver<ExcluiChaveResponse>
     ){
