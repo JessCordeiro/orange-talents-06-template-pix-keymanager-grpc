@@ -6,7 +6,7 @@ option java_outer_classname = "Edu";
 
 package pix.br.com.zup;
 
-
+import "google/protobuf/timestamp.proto";
 
 service RegistrarChave{
      rpc cadastrar(CadastraChaveRequest) returns (CadastraChaveResponse) {}
@@ -15,6 +15,15 @@ service RegistrarChave{
    service ExcluiChaveGrpcService{
   rpc exclui(ExcluiChaveRequest) returns (ExcluiChaveResponse){}
    }
+
+service ConsultaChaveGrpcService {
+  rpc consulta(ConsultaChaveRequest) returns (ConsultaChaveResponse) {}
+}
+
+service ListaChaveGrpcService {
+  rpc lista(ListaChaveRequest) returns (ListaChaveResponse) {}
+}
+
 
 enum TipoDeChave {
     UNKNOWN_TIPO_CHAVE = 0;
@@ -52,5 +61,57 @@ message ExcluiChaveResponse {
   string pixId = 2;
 }
 
+message ConsultaChaveRequest {
+  message PixId {
+    string idCliente = 1;
+    string idPix = 2;
+  }
 
+  oneof filtro {
+    PixId pixId = 1;
+    string chave = 2;
+  }
+}
+
+message ConsultaChaveResponse {
+
+  message ChavePix {
+
+    message InfoConta {
+      TipoDeConta tipo = 1;
+      string instituicao = 2;
+      string nomeDoTitular = 3;
+      string cpfDoTitular = 4;
+      string agencia = 5;
+      string numero = 6;
+    }
+
+    TipoDeChave tipo = 1;
+    string chave = 2;
+    InfoConta conta = 3;
+    google.protobuf.Timestamp criadaEm = 4;
+  }
+
+  string idCliente = 1;
+  string idPix = 2;
+  ChavePix chave = 3;
+}
+
+message ListaChaveRequest {
+  string idCliente = 1;
+}
+
+message ListaChaveResponse {
+
+  message DetalheChave {
+    string idPix = 1;
+    string idCliente = 2;
+    TipoDeChave tipoChave = 3;
+    string chave = 4;
+    TipoDeConta tipoConta = 5;
+    google.protobuf.Timestamp criadaEm = 6;
+  }
+
+  repeated DetalheChave detalheChave = 1;
+}
 

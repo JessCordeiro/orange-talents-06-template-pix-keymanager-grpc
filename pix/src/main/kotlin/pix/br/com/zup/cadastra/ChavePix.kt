@@ -1,7 +1,11 @@
 package pix.br.com.zup.cadastra
 
+import com.google.protobuf.Timestamp
+import pix.br.com.zup.ListaChaveResponse
 import pix.br.com.zup.TipoDeChave
 import pix.br.com.zup.TipoDeConta
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.*
 import javax.persistence.*
 import javax.validation.Valid
@@ -36,9 +40,14 @@ class ChavePix (
     @GeneratedValue
     val id: UUID? = null
 
+    @Column(nullable = false)
+    val criadaEm: LocalDateTime = LocalDateTime.now()
+
     fun eDoCliente(clienteId: String): Boolean{
         return UUID.fromString(clienteId) == this.clienteId
     }
+
+
 }
 
 enum class TipoConta(val itau: String) {

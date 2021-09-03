@@ -1,4 +1,4 @@
-package pix.br.com.zup.client
+package pix.br.com.zup.client.itau
 
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Get

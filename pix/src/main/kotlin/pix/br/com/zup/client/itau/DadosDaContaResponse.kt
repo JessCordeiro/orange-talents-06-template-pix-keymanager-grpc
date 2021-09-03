@@ -1,4 +1,4 @@
-package pix.br.com.zup.client
+package pix.br.com.zup.client.itau
 
 import pix.br.com.zup.cadastra.ContaAssociada
 

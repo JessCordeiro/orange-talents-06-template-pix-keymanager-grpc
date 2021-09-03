@@ -10,8 +10,8 @@ import org.mockito.Mockito
 import pix.br.com.zup.cadastra.ChavePixRepository
 import pix.br.com.zup.cadastra.NovaChavePix
 import pix.br.com.zup.cadastra.TipoChave
-import pix.br.com.zup.client.DadosDaContaResponse
-import pix.br.com.zup.client.ItauClient
+import pix.br.com.zup.client.itau.DadosDaContaResponse
+import pix.br.com.zup.client.itau.ItauClient
 import java.net.http.HttpClient
 import java.net.http.HttpResponse
 import javax.inject.Inject

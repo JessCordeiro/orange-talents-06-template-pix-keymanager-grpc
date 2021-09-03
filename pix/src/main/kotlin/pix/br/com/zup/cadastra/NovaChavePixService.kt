@@ -3,7 +3,7 @@ package pix.br.com.zup.cadastra
 import io.micronaut.validation.Validated
 
 
-import pix.br.com.zup.client.ItauClient
+import pix.br.com.zup.client.itau.ItauClient
 import pix.br.com.zup.excecao.ChavePixExistenteException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,7 +13,7 @@ import javax.validation.Valid
 @Validated
 @Singleton
 class NovaChavePixService(@Inject val repository:ChavePixRepository,
-                          @Inject val itauClient:ItauClient
+                          @Inject val itauClient: ItauClient
 
 
 ) {
